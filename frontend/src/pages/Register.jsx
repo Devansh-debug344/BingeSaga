@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { User, Mail, Lock, Eye, EyeOff, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import axios from 'axios';
 
@@ -21,10 +21,11 @@ function Register({ onSuccess }) {
       case 'username':
         if (value.length < 3) errors.username = 'Username must be at least 3 characters';
         break;
-      case 'email':
+      case 'email': {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) errors.email = 'Please enter a valid email';
         break;
+      }
       case 'password':
         if (value.length < 6) errors.password = 'Password must be at least 6 characters';
         break;
@@ -63,7 +64,7 @@ function Register({ onSuccess }) {
     setMessage(null);
 
     try {
-      const response = await axios.post('/api/user/', {
+      await axios.post('/api/user/', {
         username: formData.username,
         email: formData.email,
         password: formData.password,
@@ -331,4 +332,3 @@ function Register({ onSuccess }) {
 }
 
 export default Register;
-

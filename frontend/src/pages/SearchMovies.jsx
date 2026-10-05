@@ -270,7 +270,7 @@ function SearchMovies({ token }) {
         {/* Results Grid */}
         {results.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {results.map((movie, index) => {
+            {results.map((movie) => {
               const movieReviews = allReviews.filter(r => r.movie_name === movie.Title);
               const isExpanded = expandedReviews[movie.Title];
               const displayedReviews = isExpanded ? movieReviews : movieReviews.slice(0, 2);
