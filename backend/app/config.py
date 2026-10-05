@@ -14,10 +14,11 @@ class Setting(BaseSettings):
     JWT_SECRET_TOKEN : str = os.getenv("JWT_SECRET_TOKEN")
     REDIS_URL : str = os.getenv("REDIS_URL")
     REFRESH_TOKEN_EXPIRE_DAYS : int = 7
-    TWILIO_API_KEY: str = os.getenv("TWILIO_API_KEY")
-    TWILIO_ACCOUNT_SID: str =  os.getenv("TWILIO_ACCOUNT_SID")
-    TWILIO_API_SECRET : str = os.getenv("TWILIO_API_SECRET")
-    TWILIO_PHONE_NUMBER: str = os.getenv("TWILIO_PHONE_NUMBER")
+    # Twilio is optional; use empty strings when the integration is not configured.
+    TWILIO_API_KEY: str = os.getenv("TWILIO_API_KEY", "")
+    TWILIO_ACCOUNT_SID: str = os.getenv("TWILIO_ACCOUNT_SID", "")
+    TWILIO_API_SECRET : str = os.getenv("TWILIO_API_SECRET", "")
+    TWILIO_PHONE_NUMBER: str = os.getenv("TWILIO_PHONE_NUMBER", "")
     CLOUDINARY_CLOUD_NAME: str = os.getenv("CLOUDINARY_CLOUD_NAME", "")
     CLOUDINARY_API_KEY: str = os.getenv("CLOUDINARY_API_KEY", "")
     CLOUDINARY_API_SECRET: str = os.getenv("CLOUDINARY_API_SECRET", "")

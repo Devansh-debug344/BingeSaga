@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { formatRating } from '../components/RatingDisplay';
 import axios from 'axios';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { 
   Bookmark, 
   Eye, 

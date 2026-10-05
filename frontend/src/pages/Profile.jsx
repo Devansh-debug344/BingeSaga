@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import { 
   User, 
@@ -106,19 +106,6 @@ function Profile({ token }) {
       x: 0,
       transition: {
         duration: 0.5
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { scale: 0.9, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
       }
     }
   };

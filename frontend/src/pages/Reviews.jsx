@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { Star, Edit3, Trash2, Send, Heart, Calendar, User, Film } from 'lucide-react';
 
 import axios from 'axios';
@@ -76,7 +76,7 @@ function Reviews({ token }) {
         }
       );
       fetchReviews();
-    } catch (err) {
+    } catch {
       alert('Delete failed');
     }
   };

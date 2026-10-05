@@ -2,13 +2,35 @@
 
 A full-stack film diary application for discovering films, tracking watch status, and publishing rated reviews.
 
+**Live deployment:** [devansh.online](https://devansh.online)
+
+## Features implemented
+
+- Secure accounts with JWT access tokens, rotating refresh tokens, logout controls, and optional SMS OTP
+- TMDB-powered movie discovery, searchable film details, and person filmographies
+- Personal watchlists, watched-film diary entries, ratings, reviews, and profile/movie statistics
+- Redis caching and rate limiting, plus optional Cloudinary media storage and Celery background work
+
+## Tech stack used
+
+- **Frontend:** React, TypeScript, Vite, TanStack Query, Zustand, Tailwind CSS
+- **Backend:** FastAPI, SQLAlchemy async, PostgreSQL, Redis, Celery, Alembic
+- **Tooling and services:** Docker, Nginx, GitHub Actions, TMDB, Cloudinary, Twilio
+
+## Learning outcomes
+
+- Designing and testing an asynchronous API with layered routes, schemas, CRUD modules, and services
+- Implementing token rotation, authenticated workflows, rate limiting, caching, and background jobs
+- Building a typed React client that handles server state and token refreshes
+- Shipping repeatable checks through CI and documenting local setup for contributors
+
 ## Overview
 
 BingeSaga is a React single-page application backed by an asynchronous FastAPI API. It gives users a place to search and browse movie data, keep a watchlist, record watched films with an optional rating and date, and create one review per film. Public profile statistics, movie statistics, person pages, and movie reviews are also exposed by the API.
 
 The implementation combines a PostgreSQL source of record with Redis for short-lived response caching and rate limiting. Movie metadata is retrieved from TMDB and normalized into the application's movie shape; optional background work moves movie artwork to Cloudinary. Celery keeps artwork processing and authentication audit persistence off the request path.
 
-## Features
+## Feature details
 
 ### Accounts and profiles
 
@@ -39,7 +61,7 @@ The implementation combines a PostgreSQL source of record with Redis for short-l
 - Redis response caching with cache invalidation/versioning around library and review changes
 - Best-effort, batched authentication audit events dispatched to Celery
 
-## Tech Stack
+## Technology details
 
 ### Frontend
 
@@ -224,7 +246,7 @@ git clone <repository-url> BingeSaga
 cd BingeSaga
 ```
 
-Create a root-level `.env` file with the variables in the next section. The repository does not include an `.env.example`. Do not copy real credentials into documentation or source control.
+Copy the repository's root-level `.env.example` to `.env`, then replace the placeholder values with your local credentials. Do not copy real credentials into documentation or source control.
 
 ### 2. Start dependencies
 
